@@ -9,7 +9,7 @@ export default function SelectOperation({setOperation, operation}) {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"

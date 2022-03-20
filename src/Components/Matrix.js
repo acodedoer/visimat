@@ -4,26 +4,28 @@ const Matrix = ({matrix, updateMatrix, name, visualise, operation, showSolution}
   }
 
     return(
-      <div>
+      <table  border="1" cellPadding="0" cellSpacing="0">
+        <tbody>
           {matrix.map((x,i)=>
-            <div key={`${i}`} style={{display:"flex"}}>
+            <tr key={`${i}`}>
               {x.map((y,j)=> name!=="answer"?
-                <input  data-i={i}  
+                <td style={{padding:"5px",textAlign:"center",backgroundColor: operation==3?name=="m1"?(i==visualise.question.i? `hsl(60, ${100 - 100/matrix[0].length*j}%, 50%)`:""):(j==visualise.question.j?`hsl(60, ${100 - 100/matrix.length*i}%, 50%)`:""): i==visualise.question.i && j == visualise.question.j? "red":""}}><input  data-i={i}  
                         data-j={j}
-                        style={{width:"30px",backgroundColor: operation==3?name=="m1"?(i==visualise.i? `hsl(60, ${100 - 100/matrix[0].length*j}%, 50%)`:""):(j==visualise.j?`hsl(60, ${100 - 100/matrix.length*i}%, 50%)`:""): i==visualise.i && j == visualise.j? "red":""}} 
+                        style={{all:"unset",width:"40px",backgroundColor:"#eaeaea"}} 
                         key={`${i}${j}`} 
                         maxLength={5} 
-                        value={y} 
+                        value={y}
                         onChange={handleChange}
-                />
+                /></td>
                 :
-                <div  onClick ={()=>showSolution(i,j)} data-i={i} data-j={j} style={{width:"30px",borderStyle: "solid"}} key={`${i}${j}`}> {y} </div>
+                <td  onClick ={()=>showSolution(i,j)} data-i={i} data-j={j} style={{width:"40px",textAlign:"center", cursor:"pointer",padding:"5px", backgroundColor:visualise.answer.i == i && visualise.answer.j == j?"red":""}} key={`${i}${j}`}> {y} </td>
                         
                 )}
-            </div>
+            </tr>
           )
           }
-      </div>
+          </tbody>
+      </table>
     )
 }
 
