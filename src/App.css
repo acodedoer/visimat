@@ -1,4 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-table{
-  font-family: 'Varela Round', sans-serif;
+table,input{
+  font-family: 'Varela Round', sans-serif !important;
+}
+
+.matrix {
+  position: relative;
+}
+.matrix:before, .matrix:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  border: 1px solid #000;
+  width: 6px;
+  height: 100%;
+}
+.matrix:before {
+  left: -6px;
+  border-right: 0px;
+}
+.matrix:after {
+  right: -6px;
+  border-left: 0px;
+}
+.matrix td {   
+  text-align: center;
+  padding: 0;
 }
